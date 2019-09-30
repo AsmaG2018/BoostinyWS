@@ -1,18 +1,10 @@
 'use strict';
 var mongoose = require('mongoose'),
-Category = mongoose.model('Category');
-exports.category = function(req, res) {
-    Category.find({}, function(err, category) {
-      if (err)
-        res.send(err);
-      res.json(category);
-    });
-  };
-exports.getproduct = function(req, res) {
-    var productCategory = req.query.productCategory;
-    Product.findByCategory(mongoose.Types.Category(productCategory), function(err, product) {
-      if (err)
-        res.send(err);
-      res.json(product);
-    });
-  };
+ Category= mongoose.model('Category');
+exports.Category= function(req, res){
+    Category.findOne({title: req.params.Category}, function (err, Category) {
+        if (err) return console.log(err);
+        Product.find({Category: Category.title}, function(err, products) {
+            if(err) return console.log(err);
+            res.status(200).json(products);
+  }

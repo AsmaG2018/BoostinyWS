@@ -2,9 +2,12 @@
 module.exports = function(app) {
     var category = require('../controllers/CategoryController');
     app.route('/categories')
-        .get((req, res, next) => {
-            Product.find( {  } )
-                .populate('product')
-                .exec()
         
 };
+router.get('/:category', function (req, res, next) {
+    Category.findOne({title: req.params.category}, function (err, category) {
+        if (err) return console.log(err);
+        Product.find({category: category.title}, function(err, products) {
+            if(err) return console.log(err);
+            res.status(200).json(products);
+        });

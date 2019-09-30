@@ -6,6 +6,6 @@ var productSchema = new Schema({
   
   price:    { type: String,     Required:  'Product price cannot be left blank.'},
   
-  category: { type: String ,    Required:  'Product category cannot be left blank'}
+  category:  [{ type: mongoose.Schema.category_name, ref: 'category'}]
 });
 module.exports = mongoose.model('Products', productSchema);

@@ -35,11 +35,3 @@ exports.delete = function(req, res) {
   });
 };
 
-exports.getproduct = function(req, res) {
-    var productCategory = req.query.productCategory;
-    Product.findByCategory(mongoose.Types.Category(productCategory), function(err, product) {
-      if (err)
-        res.send(err);
-      res.json(product);
-    });
-  };
