@@ -1,0 +1,24 @@
+{
+  "name": "boostinyv01",
+  "version": "1.0.0",
+  "description": "web service version 1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "node",
+    "web",
+    "service",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
+}
